@@ -64,8 +64,9 @@ function transfer2(data){
 
 
 function displaytable(data){
-    console.log(jobs);
-    console.log(reviewer);
+    document.getElementById("tablebody").innerHTML = ''
+    //console.log(jobs);
+    //console.log(reviewer);
     
     
     for(var x = 0 ; x <= jobs.length ; x++){
@@ -75,35 +76,23 @@ function displaytable(data){
         tr.setAttribute("id", x);
 
 
-        for(var y = 0 ; y <= 4 ; y++){
+        for(var y = 0 ; y <= 5 ; y++){
             var td = document.createElement("td");
-            
             var correct = document.createTextNode((correctpercent * 100).toFixed(2));
             
             if(y==0){
-                
                 
                 var id = jobs[x].job_id;
                 
                 td.appendChild(correct);
                 document.getElementById(x).appendChild(td);
                 
-                
-                
             }else if(y==1){
                 var link = jobs[x]["Link (from URL in JID)"];
                 var JID = jobs[x].job_id;
-                var correct = document.createElement("a");
-                correct.setAttribute("href", link);
-                correct.setAttribute("target","_blank");
-                correct.setAttribute("id","content");
-                correct.textContent = "show data";  
-                td.appendChild(correct);
-                td.setAttribute("id",jobs[x].job_id);
-                document.getElementById(x).appendChild(td);
                 
                 //adding a button for showing functionality
-                var button = document.createElement("button");
+                var button = document.createElement("div");
                 button.setAttribute("id","JID");
                 button.setAttribute("class","showtable");
                 button.textContent = jobs[x].job_id;
@@ -111,8 +100,19 @@ function displaytable(data){
                 
                 document.getElementById(x).appendChild(td);
 
+                /*$("tr").hover(function(){
+                    $(this).css("background-color", "#065446");
+                }, 
+                function(){
+                    //highlight((correctpercent * 100).toFixed(2),x);
+                    var num = (correctpercent * 100).toFixed(2);
+                    if(num <= 50){
+                        document.getElementById(x).style.backgroundColor = "#197163";
+                    }
+                });*/
                 //adding functionality for the button to show who tagged 
                $(".showtable").click(function(event) {
+                   $(this).css("background-color", "#056676");
                    var str = $(this).closest("#JID").text();
                     console.log(str);
                     var counter = new Counter();
@@ -124,11 +124,8 @@ function displaytable(data){
                    event.stopImmediatePropagation();
                    console.log(counter.current());
                    showtaggedtable(counter.current());
-                   
+                   displaytable(jobs);
                 });
-                
-                
-                
                 
             }else if(y==2){
                 var correct = document.createTextNode(jobs[x].majority_policy);
@@ -138,19 +135,33 @@ function displaytable(data){
                 document.getElementById(x).appendChild(td);
             }else if(y==4){
                 document.getElementById(x).appendChild(td);
+            }else if(y==5){
+                document.getElementById(x).appendChild(td);
+                var correct = document.createElement("a");
+                correct.setAttribute("href", link);
+                correct.setAttribute("target","_blank");
+                correct.setAttribute("id","content");
+                correct.textContent = "show data";  
+                td.appendChild(correct);
+                td.setAttribute("id",jobs[x].job_id);
             }
+            
         }
-        console.log((correctpercent * 100).toFixed(2));
+        //console.log((correctpercent * 100).toFixed(2));
         //highlighting 
         highlight((correctpercent * 100).toFixed(2),x);
+        
+        /*$("#JID").click(function(event) {
+            document.getElementById(x).style.backgroundColor = "#065446";
+            document.getElementById(x).style.color = "#fff";
+         });*/
+         
     }
-    
 }
 
 function highlight(num , id){
-    console.log(num <= 50 , id);
     if(num <= 50){
-        document.getElementById(id).style.backgroundColor = "#197163";
+        document.getElementById(id).style.backgroundColor = "#5eaaa8";
     }
 }
 
@@ -216,14 +227,14 @@ function showtaggedtable(reviewertagged){
 
 function loadanimation(){
     inputfirst.style.animation = "increase 1s ease";
-    wrapper.style.backgroundColor = "#bcd2e7"
+    wrapper.style.backgroundColor = "#e8ded2"
 }
 
 function added(){
     inputfirst.style.animation = "disappear 1s ease";
     inputfirst.style.display = "none";
     wrapper.style.animation = "wrap 1s ease";
-    wrapper.style.backgroundColor = "#bcd2e7";
+    wrapper.style.backgroundColor = "#e8ded2";
 } 
 
 
