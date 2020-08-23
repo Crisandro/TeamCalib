@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #bcd2e7;
+}
+
+#filetitle{
+    width: 100%;
+    height: 3vw;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #065446;
+}
+
+H2{
+    position: relative;
+    left: 2vw;
+    width: 98%;
+    height: 2vh;
+}
+
+#inputfirst{
+    z-index: 5;
+    height: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    transform: translate(-50%,-50%);
+}
+#wrapper{
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 95%; /* Full width */
+    height: 100%; /* Full height */
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 5vw;
+    padding-bottom: 12vw;
+}
+
+table{
+    position: absolute;
+    border-collapse: collapse;
+    width: 47vw;
+    text-align: center;
+    background-color: #158467;
+}
+
+#table td{
+    border: 1px solid #000;
+}
+
+#secondtable td{
+    border: 1px solid #000;
+}
+
+#secondtable  {
+    right: 0;
+    top: 17vh;
+}
+
+@keyframes increase {
+    from {top: -10%;}
+    to {top: 50%;}
+}
+
+@keyframes disappear {
+    from {top: 50%;opacity: 1}
+    to {top: -10%;opacity: 0}
+}
+
+@keyframes wrap {
+    from {background-color: #bcd2e7;}
+    to {background-color: #bcd2e7;}
+}
+#JIDselector {
+    z-index: 11;
+    position: absolute;
+    height: 6vh;
+    width: 45vw;
+    top: 9vh;
+    left: 52vw;
+}
+
+#selectedJID {
+    width: 90%;
+    text-align: left;
+    font-size: 30px;
+}
+
+#taggedas {
+    text-align: left;
+    font-size: 20px;
+    margin-left: 3%;
+}
+
+thead {
+    background-color: #065446;
+    color: #fff;
+}

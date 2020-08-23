@@ -1,0 +1,75 @@
+<html>
+<head>
+    <script lang="javascript" src="xlsx.full.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.6/xlsx.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+</head> 
+    
+<body>
+    <div id="filetitle">
+        <H2 id="fortitle"></H2>
+    </div>
+    <div id="inputfirst">
+        <input type="file" id="input-excel" />
+    </div>
+    <div id="wrapper">
+        <table id="table">
+            <thead>
+                <td style="width: 1col">
+                    Correct (%)
+                </td>
+                <td style="width: 3col">
+                    Job ID
+                </td>
+                <td style="width: 2col">
+                    Majority Policy
+                </td>
+                <td style="width: 2col">
+                    Team Tag
+                </td>
+                <td style="width: 10col">
+                    Comment
+                </td>
+            </thead>
+            <tbody id="tablebody"></tbody>
+        </table>
+        
+        <table id="secondtable">
+            <thead>
+                <td>
+                    Actor Name
+                </td>
+                <td>
+                    Actor Policy
+                </td>
+                <td>
+                    Consistency
+                </td>
+                <td>
+                    True
+                </td>
+                <td>
+                    False
+                </td>
+                <td>
+                    caltrue
+                </td>
+                <td>
+                    calfalse
+                </td>
+            </thead>
+            <tbody id="secondbody"></tbody>
+        </table>
+    </div>
+    
+    <div id="JIDselector">
+        <div id="selectedJID">Selected Job ID</div>
+        <div id="taggedas">tagged as </div>
+    </div>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
